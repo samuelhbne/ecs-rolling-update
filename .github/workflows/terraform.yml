@@ -51,7 +51,8 @@ jobs:
                 terraform plan -no-color|grep app_docker_image|cut -d\" -f2 >app_image
                 terraform plan -no-color|grep app_docker_image|cut -d\" -f2
                 echo GREP
-                terraform plan -no-color|grep app_docker_image
+                terraform plan -no-color|grep app_docker_image >docker_image
+                cat docker_image
                 echo START
                 cat app_image
                 echo END
