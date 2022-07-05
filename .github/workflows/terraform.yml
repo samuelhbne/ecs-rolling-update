@@ -22,6 +22,7 @@ jobs:
             - name: 'Terraform init'
               id: init
               run: terraform init
+              continue-on-error: true
             - run: echo ${{ steps.init.outputs.stdout }}
             - run: echo ${{ steps.init.outputs.stderr }}
             - run: echo ${{ steps.init.outputs.exitcode }}
