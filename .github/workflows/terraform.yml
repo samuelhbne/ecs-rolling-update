@@ -49,7 +49,6 @@ jobs:
               id: app_image
               run: |
                 terraform plan -no-color|grep app_docker_image >app_docker_image
-                cat app_docker_image|cut -d\" -f2 |grep : >app_image
                 echo "::set-output name=docker_image::$(cat app_docker_image|cut -d\" -f2 |grep :)"
               env:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
