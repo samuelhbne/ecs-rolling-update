@@ -61,8 +61,6 @@ jobs:
 
             - run: |
                 terraform plan -no-color|grep app_images
-                cat app_image
-                echo OK
 
             - name: Run Trivy vulnerability scanner
               id: trivy
