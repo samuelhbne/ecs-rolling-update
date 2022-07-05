@@ -26,13 +26,13 @@ jobs:
             - run: echo ${{ steps.init.outputs.stdout }}
             - run: echo ${{ steps.init.outputs.stderr }}
             - run: echo ${{ steps.init.outputs.exitcode }}
-            - name: 'Terraform Validate'
-              id: validate
-              run: terraform validate -no-color
-            - name: 'Terraform Plan'
-              id: plan
-              run: terraform plan -no-color
-              continue-on-error: true
+#            - name: 'Terraform Validate'
+#              id: validate
+#              run: terraform validate -no-color
+#            - name: 'Terraform Plan'
+#              id: plan
+#              run: terraform plan -no-color
+#              continue-on-error: true
               env:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                 AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
