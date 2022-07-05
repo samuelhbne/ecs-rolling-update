@@ -61,7 +61,7 @@ jobs:
                 TF_VAR_ENV: ${{ secrets.ENV }}
                 TF_VAR_DOMAIN: ${{ secrets.DOMAIN }}
 
-            - run: cat app_images
+            - run: cat app_image
 
             - name: Run Trivy vulnerability scanner
               id: trivy
