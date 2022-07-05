@@ -57,16 +57,3 @@ jobs:
                 TF_VAR_PUBLIC_KEY: ${{ secrets.PUBLIC_KEY }}
                 TF_VAR_ENV: ${{ secrets.ENV }}
                 TF_VAR_DOMAIN: ${{ secrets.DOMAIN }}
-
-            - name: Run Trivy vulnerability scanner
-              id: trivy
-              uses: aquasecurity/trivy-action@master
-              with:
-                image-ref: $(cat app_image)
-                format: 'sarif'
-                output: 'trivy-results.sarif'
-            - name: Upload Trivy scan results to GitHub Security tab
-              id: trivy-results
-              uses: github/codeql-action/upload-sarif@v2
-              with:
-                sarif_file: 'trivy-results.sarif'
