@@ -50,10 +50,10 @@ jobs:
               run: |
                 terraform plan -no-color|grep app_docker_image >app_docker_image
                 cat app_docker_image|cut -d\" -f2 >app_image
+                echo app_docker_image
                 cat app_docker_image
-                echo START
+                echo app_image
                 cat app_image
-                echo END
               env:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                 AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
