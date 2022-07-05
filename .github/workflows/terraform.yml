@@ -47,7 +47,7 @@ jobs:
 
             - name: 'Fetch App image name'
               id: app_image
-              run: terraform plan -no-color|grep app_images|cut -d\" -f2
+              run: terraform plan -no-color
               env:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                 AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
