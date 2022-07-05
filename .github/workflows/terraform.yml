@@ -65,8 +65,8 @@ jobs:
                 image-ref: $(cat app_image)
                 format: 'sarif'
                 output: 'trivy-results.sarif'
-            -
-              name: Upload Trivy scan results to GitHub Security tab
+            - name: Upload Trivy scan results to GitHub Security tab
+              id: trivy-results
               uses: github/codeql-action/upload-sarif@v2
               with:
                 sarif_file: 'trivy-results.sarif'
