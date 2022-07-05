@@ -20,9 +20,9 @@ jobs:
               with:
                 terraform_version: 1.1.7
             - name: 'Terraform init'
-              id: init
               run: terraform init -backend-config="access_key=${{ secrets.AWS_ACCESS_KEY_ID }}" -backend-config="secert_key=${{ secrets.AWS_SECRET_ACCESS_KEY }}"
               continue-on-error: true
+              id: init
             - run: echo ${{ steps.init.outputs.stdout }}
             - run: echo ${{ steps.init.outputs.stderr }}
             - run: echo ${{ steps.init.outputs.exitcode }}
