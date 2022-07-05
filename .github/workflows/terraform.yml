@@ -1,9 +1,7 @@
-name: AWS-deployment
-
+name: Terraform-AWS
 on:
     push:
         branches:
-            - master
             - dev
     pull_request:
 env:
@@ -15,15 +13,18 @@ jobs:
         name: 'Terraform check'
         runs-on: ubuntu-latest
         steps:
+            - name: 'Checkout'
               uses: actions/checkout@v2
-              uses: hashicorp/setup-terraform@v2
             - name: 'Terraform Init'
+              uses: hashicorp/setup-terraform@v2
               id: init
               run: terraform init
             - name: 'Terraform Validate'
+              uses: hashicorp/setup-terraform@v2
               id: validate
               run: terraform validate -no-color
             - name: 'Terraform Plan'
+              uses: hashicorp/setup-terraform@v2
               id: plan
               run: terraform plan -no-color
               continue-on-error: true
