@@ -16,15 +16,12 @@ jobs:
         with:
           ref: ${{ github.ref }}
       -
-        name: Run Trivy fs vulnerability scanner
-        uses: anandg112/trivy-action@feat/add-skip-dirs-option
+        name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@master
         with:
-          scan-type: 'fs'
-          ignore-unfixed: true
-          format: 'template'
-          template: '@/contrib/sarif.tpl'
+          image-ref: 'nginx:1.22'
+          format: 'sarif'
           output: 'trivy-results.sarif'
-          #severity: 'CRITICAL'
       -
         name: Upload Trivy scan results to GitHub Security tab
         uses: github/codeql-action/upload-sarif@v2
