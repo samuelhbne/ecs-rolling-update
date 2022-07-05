@@ -51,6 +51,7 @@ jobs:
                 terraform plan -no-color|grep app_images|cut -d\" -f2 >app_image
                 terraform plan -no-color|grep app_images
                 cat app_image
+                echo END
               env:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                 AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
