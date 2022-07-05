@@ -70,8 +70,8 @@ variable "PUBLIC_KEY" {
 variable "STACKS" {
   description   = "Product stacks to deploy. Format: domain-name = release-version"
   default       = {
-    "app122"    = "1.22"
-    "app123"    = "1.23"
+    "app122"    = "nginx:1.22"
+    "app123"    = "nginx:1.23"
   }
 }
 

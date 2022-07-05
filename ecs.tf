@@ -61,7 +61,7 @@ resource "aws_ecs_task_definition" "hello_ecs_td" {
 [
   {
     "name": "hello-app-${each.key}",
-    "image": "nginx:${each.value}",
+    "image": "${each.value}",
     "cpu": 256,
     "memory": 512,
     "portMappings": [
@@ -112,4 +112,9 @@ resource "aws_ecs_service" "hello_service" {
   }
 
   depends_on                        = [aws_lb_listener.hello_http_listener, aws_lb_listener.hello_https_listener]
+}
+
+
+output "app_images" {
+  value = lookup(var.STACKS, var.SERVICE_STACK)
 }

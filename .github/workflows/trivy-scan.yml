@@ -18,6 +18,8 @@ jobs:
       -
         name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
+        env:
+          TF_VAR_STACKS: ${{ secrets.STACKS }}
         with:
           image-ref: 'nginx:1.22'
           format: 'sarif'
