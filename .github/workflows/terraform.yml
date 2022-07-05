@@ -20,18 +20,13 @@ jobs:
               uses: hashicorp/setup-terraform@v2
               with:
                 terraform_version: 1.2.3
-            - run: echo ${{ steps.setup.outputs.stdout }}
-            - run: echo ${AWS_ACCESS_KEY_ID}
-              env:
-                AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
             - name: 'Terraform init'
               id: init
-              run: terraform init -backend-config="access_key=${AWS_ACCESS_KEY_ID}" -backend-config="secert_key=${AWS_SECRET_ACCESS_KEY}"
+              run: terraform init -backend-config="access_key=${AWS_ACCESS_KEY_ID}"
               continue-on-error: true
               env:
                 AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
                 AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-            - run: echo ${{ steps.init.outputs.stdout }}
 #            - run: echo ${{ steps.init.outputs.stderr }}
 #            - run: echo ${{ steps.init.outputs.exitcode }}
 #            - name: 'Terraform Validate'
