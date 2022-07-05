@@ -25,6 +25,16 @@ jobs:
               run: terraform init
               continue-on-error: true
               env:
+                AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+                AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+            - name: 'Terraform Validate'
+              id: validate
+              run: terraform validate -no-color
+            - name: 'Terraform Plan'
+              id: plan
+              run: terraform plan -no-color
+              continue-on-error: true
+              env:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                 AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
                 AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -33,12 +43,3 @@ jobs:
                 TF_VAR_PUBLIC_KEY: ${{ secrets.PUBLIC_KEY }}
                 TF_VAR_ENV: ${{ secrets.ENV }}
                 TF_VAR_DOMAIN: ${{ secrets.DOMAIN }}
-#            - run: echo ${{ steps.init.outputs.stderr }}
-#            - run: echo ${{ steps.init.outputs.exitcode }}
-#            - name: 'Terraform Validate'
-#              id: validate
-#              run: terraform validate -no-color
-#            - name: 'Terraform Plan'
-#              id: plan
-#              run: terraform plan -no-color
-#              continue-on-error: true
