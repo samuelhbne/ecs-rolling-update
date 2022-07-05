@@ -115,6 +115,6 @@ resource "aws_ecs_service" "hello_service" {
 }
 
 
-output "app_images" {
+output "app_docker_image" {
   value = lookup(var.STACKS, var.SERVICE_STACK)
 }

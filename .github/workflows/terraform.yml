@@ -48,9 +48,11 @@ jobs:
             - name: 'Fetch App image name'
               id: app_image
               run: |
-                terraform plan -no-color|grep app_images|cut -d\" -f2 >app_image
-                terraform plan -no-color|grep app_images|cut -d\" -f2
-                terraform plan -no-color|grep app_images
+                terraform plan -no-color|grep app_docker_image|cut -d\" -f2 >app_image
+                terraform plan -no-color|grep app_docker_image|cut -d\" -f2
+                echo GREP
+                terraform plan -no-color|grep app_docker_image
+                echo START
                 cat app_image
                 echo END
               env:
