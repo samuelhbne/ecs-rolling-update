@@ -2,9 +2,9 @@ name: Terraform-AWS
 
 on:
     push:
-        branches:
-            - dev
+      branches: [ "dev", "master" ]
     pull_request:
+      branches: [ "master" ]
 env:
     tf_version: 'latest'
     tf_working_dir: '.'
