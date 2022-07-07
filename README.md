@@ -1,6 +1,6 @@
 # ecs-rolling-update
 
-This project is designed to deploy applications (Nginx by default) in the Amazon ECS cluster with a rolling update strategy. Thus, new application releases can be deployed to the ECS cluster without service interruption. Newly released application stack can be tested thoroughly via a different domain name before being promoted as primary service stack.
+This project is designed to demostrate application (Nginx by default) deployment in the Amazon ECS cluster with a rolling update strategy. Thus, new application releases can be deployed to the ECS cluster without service interruption. Newly released application stack can be tested thoroughly via a different domain name before being promoted as primary service stack.
 
 As a example application, the system was designed with moderate cost association: t2.small instance type by default, two Availability Zones (AZ's), default of only two container instances running. Optionally, you could increase the minimum number of application instances to 4 and will see an increase in availability and cost.
 
