@@ -42,7 +42,7 @@ PUBLIC_KEY              = "ssh-rsa xxxxxx..."
 
 The Github Action workflows of this project will check potential risks and vulnerabilities in Terraform IaC code and application docker images.
 
-In real world projects, more sophisticated tests like unit-tests, code rule check, performance tests shall be introduced into the pipelines although did not implemented here.
+In real world projects, more sophisticated tests like unit-tests, code rule checks, performance tests shall be introduced into the pipelines although did not implemented from upstream (Nginx).
 
 ### Terraform-Security
 
