@@ -1,4 +1,4 @@
-name: Terraform-AWS
+name: Terraform-Checks
 
 on:
     push:
