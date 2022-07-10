@@ -87,6 +87,8 @@ variable "SERVICE_STACK" {
 
 Although not listed as requirements, I would do the following if I have more time:
 
+- Applying AWS STS token access for better security.
+
 - Tweaking ECS/ASG scripts for "awsvpc" ENI trunking to optimise the ECS cluster in microservice environment.
 
 - Add Trivy scanning for all application images besides the current service stack image.
