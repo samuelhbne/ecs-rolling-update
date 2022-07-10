@@ -1,10 +1,10 @@
 # ecs-rolling-update
 
-This project is designed to demostrate application (Nginx by default) deployment in the Amazon ECS cluster with a rolling update strategy. Thus, new application releases can be deployed to the ECS cluster without service interruption. Newly released application stack can be tested thoroughly via a different domain name before being promoted as primary service stack.
+This project is designed to demonstrate application (Nginx by default) deployment in the Amazon ECS cluster with a rolling update strategy. Thus, new application releases can be deployed to the ECS cluster without service interruption. Newly released application stack can be tested thoroughly via a different domain name before being promoted as primary service stack.
 
-As a example application, the system was designed with moderate cost association: t2.small instance type by default, two Availability Zones (AZ's), default of only two container instances running. Optionally, you could increase the minimum number of application instances to 4 and will see an increase in availability and cost.
+As an example application, the system was designed with moderate cost association: t2.small instance type by default, two Availability Zones (AZ's), default of only two container instances running. Optionally, you could increase the minimum number of application instances to 4 and will see an increase in availability and cost.
 
-The application container will be put inside an ECS cluster with managed Auto Scaling hence instance replacement will happen if there's a failure. The ECS cluster will be put into 2 private subnets spreaded in 2 Availability Zones with only port 80 reachable from LoadBalancer to ensure the application accessablity and security. A new TLS certificate for app.your-domain.com will be deployed to secure the secure the transfering between customer and LoadBalancer.
+The application container will be put inside an ECS cluster with managed Auto Scaling hence instance replacement will happen if there's a failure. The ECS cluster will be put into 2 private subnets spreaded in 2 Availability Zones with only port 80 reachable from LoadBalancer to ensure the application accessibility and security. A new TLS certificate for app.your-domain.com will be deployed to secure the transferring between customer and LoadBalancer.
 
 Optionally, CloudFront and Web Application Firewall (WAF) can be applied to accelerate the customer access in specific geo-area and protect the application from attacks like DDoS.
 
@@ -42,7 +42,7 @@ PUBLIC_KEY              = "ssh-rsa xxxxxx..."
 
 The Github Action workflows of this project will check potential risks and vulnerabilities in Terraform IaC code and application docker images.
 
-In real world projects, more sophisticated tests like unit-tests, code rule checks, performance tests shall be introduced into the pipelines although did not implemented from upstream (Nginx).
+In real world projects, more sophisticated tests like unit-tests, code rule checks, performance tests shall be introduced into the pipelines although not implemented from upstream (Nginx).
 
 ### Terraform-Security
 
